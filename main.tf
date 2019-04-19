@@ -1,10 +1,10 @@
  provider "google" {
 }
 
-  resource "google_compute_instance" "demo" {
-  name         = "${var.instance_name}"
+  resource "google_compute_instance" "simple" {
+  name         = "${var.name}"
   machine_type = "${var.machine_type}"
-  zone         = "${var.gcp_zone}"
+  zone         = "${var.zone}"
 
   boot_disk {
     initialize_params {
