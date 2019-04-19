@@ -9,3 +9,7 @@ variable "zone" {
 variable "machine_type" {
   description = "Machine type"
 }
+
+variable "image" {
+  description = "Machine image"
+}
