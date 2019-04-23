@@ -12,23 +12,7 @@
     }
   }
 
-  resource "google_compute_firewall" "simple" {
-    name    = "test-firewall"
-    network = "${google_compute_network.simple.name}"
-
-    allow {
-      protocol = "icmp"
-    }
-
-    allow {
-      protocol = "tcp"
-      ports    = ["80", "8080", "1000-2000"]
-    }
-
-    source_tags = ["web"]
-  }
-
-  network_interface {
+    network_interface {
     network = "default"
 
     access_config {
@@ -39,11 +23,17 @@
   ssh-keys = "${var.ssh_user}:${var.ssh_pub_key}"
 }
 
-resource "google_compute_network" "default" {
-  name = "test-network"
+resource "google_compute_firewall" "ssh" {
+  name    = "${var.name}-firewall-ssh"
+  network = "testnetwork"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  target_tags   = ["${var.name}-firewall-ssh"]
+  source_ranges = ["0.0.0.0/0"]
 }
 
-#resource "google_compute_network" "default" {
-#  name = "test_network"
-#}
 }
