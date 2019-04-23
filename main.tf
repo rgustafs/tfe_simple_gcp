@@ -14,6 +14,9 @@
 
   network_interface {
     network = "default"
-  }
 
+    access_config {
+      // Ephemeral IP
+    }
+  }
 }
