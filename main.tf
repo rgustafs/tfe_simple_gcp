@@ -41,5 +41,5 @@ resource "google_compute_firewall" "default" {
 
 #resource "google_compute_network" "default" {
 #  name = "test_network"
-}
+#}
 }
