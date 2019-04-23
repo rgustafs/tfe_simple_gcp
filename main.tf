@@ -39,7 +39,7 @@ resource "google_compute_firewall" "default" {
   source_tags = ["web"]
 }
 
-resource "google_compute_network" "default" {
-  name = "test_network"
+#resource "google_compute_network" "default" {
+#  name = "test_network"
 }
 }
