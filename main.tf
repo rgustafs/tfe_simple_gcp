@@ -12,9 +12,9 @@
     }
   }
 
-  resource "google_compute_firewall" "default" {
+  resource "google_compute_firewall" "simple" {
     name    = "test-firewall"
-    network = "${google_compute_network.default.name}"
+    network = "${google_compute_network.simple.name}"
 
     allow {
       protocol = "icmp"
