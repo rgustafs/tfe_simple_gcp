@@ -13,3 +13,12 @@ variable "machine_type" {
 variable "image" {
   description = "Machine image"
 }
+
+variable "ssh_user" {
+  description = "instance SSH user"
+  default = "rgustafsson"
+}
+
+variable "ssh_pub_key" {
+  description = "SSH public key to authorize"
+}
