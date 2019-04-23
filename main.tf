@@ -19,4 +19,7 @@
       // Ephemeral IP
     }
   }
+  metadata {
+  ssh-keys = "${var.ssh_user}:${var.ssh_pub_key}"
+}
 }
