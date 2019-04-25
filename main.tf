@@ -1,5 +1,4 @@
- provider "google" {
-}
+ provider "google" {}
 
   resource "google_compute_instance" "simple" {
   name         = "${var.name}"
@@ -14,18 +13,18 @@
 
     network_interface {
     network = "default"
-
     access_config {
       // Ephemeral IP
     }
   }
   metadata {
   ssh-keys = "${var.ssh_user}:${var.ssh_pub_key}"
+  }
 }
 
 resource "google_compute_firewall" "ssh" {
   name    = "${var.name}-firewall-ssh"
-  network = "testnetwork"
+  network = "test"
 
   allow {
     protocol = "tcp"
@@ -34,6 +33,4 @@ resource "google_compute_firewall" "ssh" {
 
   target_tags   = ["${var.name}-firewall-ssh"]
   source_ranges = ["0.0.0.0/0"]
-}
-
 }
