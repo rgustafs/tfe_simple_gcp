@@ -24,7 +24,7 @@
 
 resource "google_compute_firewall" "ssh" {
   name    = "${var.name}-firewall-ssh"
-  network = "test"
+  network = "default"
 
   allow {
     protocol = "tcp"
@@ -32,5 +32,18 @@ resource "google_compute_firewall" "ssh" {
   }
 
   target_tags   = ["${var.name}-firewall-ssh"]
+  source_ranges = ["0.0.0.0/0"]
+}
+
+resource "google_compute_firewall" "web" {
+  name    = "${var.name}-firewall-web"
+  network = "default"
+
+  allow {
+    protocol = "http"
+    ports    = ["80"]
+  }
+
+  target_tags   = ["${var.name}-firewall-web"]
   source_ranges = ["0.0.0.0/0"]
 }
