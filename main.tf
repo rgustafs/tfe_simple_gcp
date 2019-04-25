@@ -40,7 +40,7 @@ resource "google_compute_firewall" "web" {
   network = "default"
 
   allow {
-    protocol = "http"
+    protocol = "tcp"
     ports    = ["80"]
   }
 
