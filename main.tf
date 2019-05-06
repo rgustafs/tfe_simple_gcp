@@ -1,5 +1,7 @@
- provider "google" {}
-
+provider "google" {
+  region      = "${var.region}"
+  project     = "${var.project_name}"
+}
   resource "google_compute_instance" "simple" {
   name         = "${var.name}"
   machine_type = "${var.machine_type}"
