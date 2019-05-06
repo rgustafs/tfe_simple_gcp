@@ -1,4 +1,6 @@
- provider "google" {}
+ provider "google" {
+  project     = "${var.project_name}"
+  }
 
   resource "google_compute_instance" "simple" {
   name         = "${var.name}"
