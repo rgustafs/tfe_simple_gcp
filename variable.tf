@@ -1,3 +1,12 @@
+variable "region" {
+  description = "GCP region targeted"
+  default = "europe-west1"
+}
+
+variable "project_name" {
+  description = "GCP project targeted"
+}
+
 variable "name" {
   description = "Machine name"
 }
