@@ -31,7 +31,7 @@ resource "google_compute_firewall" "ssh" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80"]
+    ports    = ["443"]
   }
 
   target_tags   = ["${var.name}-firewall-ssh"]
