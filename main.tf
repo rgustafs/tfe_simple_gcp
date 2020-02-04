@@ -31,7 +31,7 @@ resource "google_compute_firewall" "ssh" {
 
   allow {
     protocol = "tcp"
-    ports    = ["443"]
+    ports    = ["22"]
   }
 
   target_tags   = ["${var.name}-firewall-ssh"]
@@ -44,7 +44,7 @@ resource "google_compute_firewall" "web" {
 
   allow {
     protocol = "tcp"
-    ports    = ["443  "]
+    ports    = ["80"]
   }
 
   target_tags   = ["${var.name}-firewall-web"]
